@@ -1,0 +1,89 @@
+{
+    "version": "0.1.0",
+    "license": "MIT",
+
+    "exports": {
+        ".": "./src/mod.ts",
+        "./parse": "./src/parse.ts",
+        "./symbol": "./src/symbol.ts",
+        "./types": "./src/types.ts"
+    },
+
+    "unstable": [ ],
+
+    "tasks": { },
+
+    "imports": {
+        "@std/fmt": "jsr:@std/fmt@^1.0.8"
+    },
+
+    "fmt": {
+        "exclude": [ "**/*.min.*", "**/*.vendor.*", "**/*.lock" ],
+
+        "indentWidth": 4,
+        "lineWidth": 120,
+        "newLineKind": "lf",
+        "semiColons": true,
+        "singleQuote": false,
+        "useTabs": false,
+
+        "bracePosition": "maintain",
+        "nextControlFlowPosition": "maintain",
+        "operatorPosition": "maintain",
+        "quoteProps": "consistent",
+        "singleBodyPosition": "maintain",
+        "useBraces": "maintain"
+    },
+
+    "compilerOptions": {
+        "lib": [ "deno.window", "deno.ns", "deno.unstable" ],
+
+        "jsx": "precompile",
+        "jsxImportSource": "preact",
+
+        "allowUnusedLabels": true,
+        "exactOptionalPropertyTypes": true, //NOTE - Some third-party libs will cause TypeScript to complain about this
+        "noErrorTruncation": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "verbatimModuleSyntax": true
+    },
+
+    "lint": {
+        "exclude": [ "**/*.min.*", "**/*.vendor.*", "**/*.lock" ],
+
+        "rules": {
+            "tags": [ "recommended", "jsr", "jsx", "workspace" ],
+
+            "include": [
+                "camelcase",
+                "default-param-last",
+                "eqeqeq",
+                "explicit-function-return-type",
+                "explicit-module-boundary-types",
+                "guard-for-in",
+                "no-await-in-loop",
+                "no-boolean-literal-for-arguments",
+                "no-const-assign",
+                "no-eval",
+                "no-external-import",
+                "no-implicit-declare-namespace-export",
+                "no-inferrable-types",
+                "no-non-null-asserted-optional-chain",
+                "no-non-null-assertion",
+                "no-self-compare",
+                "no-sparse-arrays",
+                "no-sync-fn-in-async-fn",
+                "no-throw-literal",
+                "no-undef",
+                "no-useless-rename",
+                "prefer-ascii",
+                "single-var-declarator",
+                "triple-slash-reference"
+            ],
+
+            "exclude": [ "no-namespace", "jsx-key" ]
+        }
+    }
+}
