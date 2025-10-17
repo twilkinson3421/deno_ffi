@@ -38,12 +38,12 @@ export class InterfaceWriter extends Writer.CodeWriter {
 
             if (cName === null) {
                 parameterAssertion.push(sprintf("%s", type.nativeType));
-                return;
+                continue;
             }
 
             if (type.nativeType.startsWith('"')) {
                 parameterAssertion.push(sprintf("%s: %s", cName, type.nativeType));
-                return;
+                continue;
             }
 
             parameterAssertion.push(sprintf("%s: typeof %s", cName, type.nativeType));
