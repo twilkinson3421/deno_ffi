@@ -1,10 +1,10 @@
 {
+    "name": "@zerm/ffi",
     "version": "0.1.0",
     "license": "MIT",
 
     "exports": {
         ".": "./src/mod.ts",
-        "./parse": "./src/parse.ts",
         "./symbol": "./src/symbol.ts",
         "./types": "./src/types.ts"
     },
