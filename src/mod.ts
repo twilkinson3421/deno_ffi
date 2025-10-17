@@ -35,9 +35,18 @@ export class InterfaceWriter extends Writer.CodeWriter {
 
         for (const { type, cName } of symbol.parameters) {
             parameters.push(sprintf("%s", type.nativeType));
-            if (cName === null) parameterAssertion.push(sprintf("%s", type.nativeType));
-            else if (cName.startsWith('"')) parameterAssertion.push(sprintf("%s: %s", cName, type.nativeType));
-            else parameterAssertion.push(sprintf("%s: typeof %s", cName, type.nativeType));
+
+            if (cName === null) {
+                parameterAssertion.push(sprintf("%s", type.nativeType));
+                return;
+            }
+
+            if (type.nativeType.startsWith('"')) {
+                parameterAssertion.push(sprintf("%s: %s", cName, type.nativeType));
+                return;
+            }
+
+            parameterAssertion.push(sprintf("%s: typeof %s", cName, type.nativeType));
         }
 
         this.writeln(sprintf("parameters: [%s] as [%s],", parameters.join(","), parameterAssertion.join(", ")));
