@@ -28,6 +28,8 @@ export enum NativeType
 export const map: Map<string, NativeType> = new Map([
     // Primary types
 
+    ["void", NativeType.Void],
+
     ["bool", NativeType.Bool],
 
     ["char", NativeType.I8],
